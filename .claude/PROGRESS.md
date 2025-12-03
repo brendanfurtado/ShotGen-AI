@@ -10,8 +10,8 @@
 - [x] Installed ShadCN components (button, card, dialog, dropdown-menu, input, label, select, slider, tabs, textarea, toast, sonner)
 - [x] Created folder structure per SRS specification
 - [x] Set up environment variable templates
+- [x] Configure Tailwind theme with "Cinematic Warmth" colors
 
 ### Next Steps
-- [ ] Configure Tailwind theme with "Cinematic Warmth" colors
 - [ ] Set up Supabase project and run migrations
 - [ ] Implement authentication flow

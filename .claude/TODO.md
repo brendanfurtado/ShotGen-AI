@@ -6,7 +6,7 @@
 - [x] Create Next.js project with TypeScript
 - [x] Configure TailwindCSS and ShadCN/UI
 - [x] Set up project structure
-- [ ] Initialize Git repository
+- [x] Initialize Git repository
 - [ ] Create Supabase project
 - [ ] Configure environment variables
 
