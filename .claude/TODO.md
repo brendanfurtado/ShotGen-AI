@@ -2,21 +2,29 @@
 
 ## Week 1: Foundation (Dec 3-9)
 
-### Day 1 - Project Initialization
+### Day 1 - Project Initialization ✅
 - [x] Create Next.js project with TypeScript
 - [x] Configure TailwindCSS and ShadCN/UI
 - [x] Set up project structure
 - [x] Initialize Git repository
-- [ ] Create Supabase project
-- [ ] Configure environment variables
+- [x] Create Supabase project
+- [x] Create comprehensive README
+- [x] Design database schema
+- [x] Create migration files
+- [x] Create Supabase client utilities
+- [x] Create authentication system
+- [x] Create SETUP.md guide
 
-### Day 2 - Database & Auth
-- [ ] Run database migrations
-- [ ] Set up Supabase Auth with Google OAuth
-- [ ] Create auth middleware
-- [ ] Implement login/logout flow
-- [ ] Create user profile hook
-- [ ] Test auth end-to-end
+### Day 2 - Database & Auth ✅
+- [x] Configure environment variables (.env.local)
+- [x] Run database migration in Supabase dashboard
+- [x] Set up Google OAuth in Supabase
+- [x] Create auth middleware (session refresh + route protection)
+- [x] Implement login page with Google OAuth
+- [x] Implement login/logout flow
+- [x] Create user profile hooks
+- [x] Create dashboard page
+- [x] Auto-redirect logged-in users from / to /dashboard
 
 ### Day 3 - Layout & Navigation
 - [ ] Create root layout with theme

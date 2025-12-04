@@ -181,6 +181,8 @@ ShotGen automates this workflow:
    cp .env.example .env.local
    ```
 
+   **Important**: Use `.env.local` (not `.env`) for your actual secrets. This file is automatically git-ignored.
+
    Fill in the required values (see [Environment Variables](#environment-variables) section below).
 
 4. **Run the development server**

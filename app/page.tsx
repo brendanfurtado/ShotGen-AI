@@ -1,20 +1,55 @@
+import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Sparkles, Film, Download } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import { signOut } from "@/lib/auth/actions";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <main className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="border-b border-border">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="text-xl font-bold text-foreground">
+          <Link href="/" className="text-xl font-bold text-foreground">
             Shot<span className="text-primary">Gen</span>
-          </div>
+          </Link>
           <div className="flex items-center gap-4">
             <Button variant="ghost">Features</Button>
             <Button variant="ghost">Pricing</Button>
-            <Button>Sign In</Button>
+            {user ? (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link href="/dashboard">Dashboard</Link>
+                </Button>
+                <div className="flex items-center gap-2">
+                  {user.user_metadata?.avatar_url && (
+                    <Image
+                      src={user.user_metadata.avatar_url}
+                      alt={user.user_metadata.full_name || "User"}
+                      width={32}
+                      height={32}
+                      className="rounded-full"
+                    />
+                  )}
+                  <form action={signOut}>
+                    <Button type="submit" variant="outline" size="sm">
+                      Sign Out
+                    </Button>
+                  </form>
+                </div>
+              </>
+            ) : (
+              <Button asChild>
+                <Link href="/login">Sign In</Link>
+              </Button>
+            )}
           </div>
         </div>
       </nav>
@@ -38,8 +73,8 @@ export default function Home() {
         </p>
         
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button size="lg" className="min-w-[180px] text-base">
-            Get Started Free
+          <Button size="lg" className="min-w-[180px] text-base" asChild>
+            <Link href="/login">Get Started Free</Link>
           </Button>
           <Button size="lg" variant="outline" className="min-w-[180px] text-base">
             Watch Demo
@@ -176,8 +211,8 @@ export default function Home() {
           <p className="mb-8 text-muted-foreground">
             Join creators who are saving hours on pre-production with AI-powered shot lists.
           </p>
-          <Button size="lg" className="min-w-[200px] text-base">
-            Start Creating for Free
+          <Button size="lg" className="min-w-[200px] text-base" asChild>
+            <Link href="/login">Start Creating for Free</Link>
           </Button>
         </div>
       </section>
